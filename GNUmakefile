@@ -31,8 +31,10 @@ endif
 
 ifeq ($(PLATFORM), Darwin)
 	CFLAGS += -I/usr/local/include
+	CFLAGS += -I/opt/local/lib/erlang/usr/include
 
 	LDFLAGS += -arch x86_64 -flat_namespace -undefined suppress
+	LDFLAGS += -L/opt/local/lib/erlang/usr/lib
 endif
 
 ifeq ($(PLATFORM), FreeBSD)
