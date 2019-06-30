@@ -22,6 +22,11 @@ static ErlNifFunc icu_nif_functions[] = {
         // Strings
         ICU_NIF_FUNC(str_from_utf8, 1),
         ICU_NIF_FUNC(str_to_utf8, 1),
+
+        ICU_NIF_FUNC(str_to_lower, 1),
+        ICU_NIF_FUNC(str_to_lower, 2),
+        ICU_NIF_FUNC(str_to_upper, 1),
+        ICU_NIF_FUNC(str_to_upper, 2),
 };
 
 #undef ICU_NIF_FUNC

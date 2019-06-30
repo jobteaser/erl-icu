@@ -2,7 +2,8 @@
 -module(icu_nif).
 
 -export([icu_version/0, unicode_version/0]).
--export([str_from_utf8/1, str_to_utf8/1]).
+-export([str_from_utf8/1, str_to_utf8/1,
+         str_to_lower/1, str_to_lower/2, str_to_upper/1, str_to_upper/2]).
 
 -on_load(init/0).
 
@@ -29,4 +30,20 @@ str_from_utf8(_BinaryString) ->
 
 -spec str_to_utf8(icu:ustring()) -> binary().
 str_to_utf8(_UString) ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec str_to_lower(icu:ustring()) -> icu:ustring().
+str_to_lower(_UString) ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec str_to_lower(icu:ustring(), string()) -> icu:ustring().
+str_to_lower(_UString, _Locale) ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec str_to_upper(icu:ustring()) -> icu:ustring().
+str_to_upper(_UString) ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec str_to_upper(icu:ustring(), string()) -> icu:ustring().
+str_to_upper(_UString, _Locale) ->
   erlang:nif_error(nif_not_loaded).
