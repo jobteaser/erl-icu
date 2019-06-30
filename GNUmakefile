@@ -35,8 +35,10 @@ endif
 
 ifeq ($(PLATFORM), FreeBSD)
 	CFLAGS += -I/usr/local/lib/erlang/usr/include
+	CFLAGS += -I/usr/local/include
 
 	LDFLAGS += -L/usr/local/lib/erlang/usr/lib
+	LDLAGS += -I/usr/local/lib
 endif
 
 all: build doc
