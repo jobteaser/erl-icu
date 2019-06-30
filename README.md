@@ -1,6 +1,8 @@
 
 # erl-icu
 
+[![CircleCI](https://circleci.com/gh/jobteaser/erl-icu/tree/master.svg?style=svg)](https://circleci.com/gh/jobteaser/erl-icu/tree/master)
+
 ## Introduction
 The repository contains an OTP library application which binds the [ICU
 library](http://site.icu-project.org).
