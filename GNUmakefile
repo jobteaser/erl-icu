@@ -2,6 +2,7 @@
 CC = clang
 
 CFLAGS += -std=c99
+CFLAGS += -D_POSIX_C_SOURCE=200809L
 CFLAGS += -Wall -Wextra -Werror -Wsign-conversion
 CFLAGS += -Wno-unused-parameter -Wno-unused-function
 CFLAGS += -fPIC
@@ -19,14 +20,12 @@ NIF_OBJ = $(subst .c,.o,$(NIF_SRC))
 PLATFORM = $(shell uname -s)
 
 ifeq ($(PLATFORM), Linux)
-	CFLAGS += -D_POSIX_C_SOURCE=200809L
 	CFLAGS += -I/usr/lib/erlang/usr/include
 
 	LDFLAGS += -L/usr/lib/erlang/usr/lib
 endif
 
 ifeq ($(PLATFORM), Darwin)
-	CFLAGS += -I/usr/local/include
 	CFLAGS += -I/opt/local/lib/erlang/usr/include
 
 	LDFLAGS += -arch x86_64 -flat_namespace -undefined suppress
@@ -34,10 +33,8 @@ ifeq ($(PLATFORM), Darwin)
 endif
 
 ifeq ($(PLATFORM), FreeBSD)
-	CFLAGS += -I/usr/local/include
 	CFLAGS += -I/usr/local/lib/erlang/usr/include
 
-	LDFLAGS += -L/usr/local/lib
 	LDFLAGS += -L/usr/local/lib/erlang/usr/lib
 endif
 
