@@ -59,8 +59,11 @@ $(NIF_LIB): $(NIF_OBJ)
 %.o: %.c
 	$(CC) -o $@ $(CFLAGS) -c $<
 
+test: $(NIF_LIB)
+	rebar3 eunit
+
 clean:
 	$(RM) -r _build
 	$(RM) $(NIF_OBJ)
 
-.PHONY: all dialyzer build clean
+.PHONY: all dialyzer build test clean
