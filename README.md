@@ -25,3 +25,7 @@ Tests can be run with:
 ```sh
     make test
 ```
+
+## Documentation
+Code documentation is available at
+[https://jobteaser.github.io/erl-icu/doc](https://jobteaser.github.io/erl-icu/doc).
