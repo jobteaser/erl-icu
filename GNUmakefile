@@ -51,6 +51,7 @@ dialyzer:
 	rebar3 dialyzer
 
 build: $(NIF_LIB)
+	rebar3 compile
 
 $(NIF_LIB): $(NIF_OBJ)
 	$(CC) -o $@ $(LDFLAGS) $^ $(LDLIBS)
