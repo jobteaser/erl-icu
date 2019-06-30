@@ -38,7 +38,7 @@ ifeq ($(PLATFORM), FreeBSD)
 	LDFLAGS += -L/usr/local/lib/erlang/usr/lib
 endif
 
-all: build
+all: build doc
 
 dialyzer:
 	rebar3 dialyzer
@@ -57,8 +57,11 @@ $(NIF_LIB): $(NIF_OBJ)
 %.o: %.c
 	$(CC) -o $@ $(CFLAGS) -c $<
 
+doc:
+	rebar3 edoc
+
 clean:
 	$(RM) -r _build
 	$(RM) $(NIF_OBJ)
 
-.PHONY: all dialyzer build test nif clean
+.PHONY: all dialyzer build test nif doc clean
