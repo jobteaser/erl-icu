@@ -3,7 +3,8 @@
 
 -export([from_utf8/1, to_utf8/1,
          transform_utf8/2, transform/2,
-         to_lower/1, to_lower/2, to_upper/1, to_upper/2]).
+         to_lower/1, to_lower/2, to_upper/1, to_upper/2,
+         normalize/2]).
 
 %% @doc Convert an UTF-8 encoded binary string to an ICU string.
 -spec from_utf8(binary()) -> icu:ustring().
@@ -58,3 +59,22 @@ to_upper(UString) ->
 -spec to_upper(icu:ustring(), string()) -> icu:ustring().
 to_upper(UString, Locale) ->
   icu_nif:str_to_upper(UString, Locale).
+
+%% @doc Normalize an ICU string.
+-spec normalize(icu:ustring(), icu:normalization_mode()) -> icu:ustring().
+normalize(UString, Mode) ->
+  Normalizer = normalizer(Mode),
+  icu_nif:unorm2_normalize(Normalizer, UString).
+
+%% @doc Return the normalizer associated with a normalization mode.
+-spec normalizer(icu:normalization_mode()) -> icu_nif:normalizer().
+normalizer(nfc) ->
+  icu_nif:unorm2_get_instance("nfc", compose);
+normalizer(nfkc) ->
+  icu_nif:unorm2_get_instance("nfkc", compose);
+normalizer(nfkc_cf) ->
+  icu_nif:unorm2_get_instance("nfkc_cf", compose);
+normalizer(nfd) ->
+  icu_nif:unorm2_get_instance("nfc", decompose);
+normalizer(nfkd) ->
+  icu_nif:unorm2_get_instance("nfkc", decompose).

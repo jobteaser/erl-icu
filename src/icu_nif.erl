@@ -4,6 +4,7 @@
 -export([icu_version/0, unicode_version/0]).
 -export([str_from_utf8/1, str_to_utf8/1,
          str_to_lower/1, str_to_lower/2, str_to_upper/1, str_to_upper/2]).
+-export([unorm2_get_instance/2, unorm2_normalize/2]).
 
 -on_load(init/0).
 
@@ -46,4 +47,17 @@ str_to_upper(_UString) ->
 
 -spec str_to_upper(icu:ustring(), string()) -> icu:ustring().
 str_to_upper(_UString, _Locale) ->
+  erlang:nif_error(nif_not_loaded).
+
+%%% Normalization
+
+-type normalizer() :: reference().
+
+-spec unorm2_get_instance(string(), Mode) -> normalizer() when
+    Mode :: compose | decompose | fcd | compose_contiguous.
+unorm2_get_instance(_Name, _Mode) ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec unorm2_normalize(normalizer(), icu:ustring()) -> icu:ustring().
+unorm2_normalize(_Normalizer, _UString) ->
   erlang:nif_error(nif_not_loaded).

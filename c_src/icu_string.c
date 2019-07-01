@@ -132,7 +132,8 @@ icu_str_to_upper(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
         if (argc > 2) {
                 int ret;
 
-                ret = enif_get_string(env, argv[1], locale_buf, ICU_LOCALE_BUFSZ,
+                ret = enif_get_string(env, argv[1],
+                                      locale_buf, sizeof(locale_buf),
                                       ERL_NIF_LATIN1);
                 if (ret <= 0) {
                         return enif_make_badarg(env);

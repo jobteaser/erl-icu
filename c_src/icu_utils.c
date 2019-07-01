@@ -12,6 +12,22 @@ icu_error_tuple(ErlNifEnv *env, ERL_NIF_TERM term) {
 }
 
 ERL_NIF_TERM
+icu_error_string_exception(ErlNifEnv *env, const char *fmt, ...) {
+        ERL_NIF_TERM str, reason;
+        char buf[1024];
+        va_list ap;
+
+        va_start(ap, fmt);
+        enif_vsnprintf(buf, sizeof(buf), fmt, ap);
+        va_end(ap);
+
+        str = enif_make_string(env, buf, ERL_NIF_LATIN1);
+        reason = icu_error_tuple(env, str);
+
+        return enif_raise_exception(env, reason);
+}
+
+ERL_NIF_TERM
 icu_memory_allocation_exception(ErlNifEnv *env) {
         ERL_NIF_TERM reason;
 

@@ -15,6 +15,7 @@
 
 <h2><a name="index">Function Index</a></h2>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#from_utf8-1">from_utf8/1</a></td><td>Convert an UTF-8 encoded binary string to an ICU string.</td></tr>
+<tr><td valign="top"><a href="#normalize-2">normalize/2</a></td><td>Normalize an ICU string.</td></tr>
 <tr><td valign="top"><a href="#to_lower-1">to_lower/1</a></td><td>Convert an ICU string to lower case using the default locale.</td></tr>
 <tr><td valign="top"><a href="#to_lower-2">to_lower/2</a></td><td>Convert an ICU string to lower case.</td></tr>
 <tr><td valign="top"><a href="#to_upper-1">to_upper/1</a></td><td>Convert an ICU string to upper case using the default locale.</td></tr>
@@ -30,6 +31,11 @@
 <div class="spec">
 <p><tt>from_utf8(BinaryString::binary()) -&gt; <a href="icu.html#type-ustring">icu:ustring()</a></tt><br></p>
 </div><p>Convert an UTF-8 encoded binary string to an ICU string.</p>
+
+<h3 class="function"><a name="normalize-2">normalize/2</a></h3>
+<div class="spec">
+<p><tt>normalize(UString::<a href="icu.html#type-ustring">icu:ustring()</a>, Mode::<a href="icu.html#type-normalization_mode">icu:normalization_mode()</a>) -&gt; <a href="icu.html#type-ustring">icu:ustring()</a></tt><br></p>
+</div><p>Normalize an ICU string.</p>
 
 <h3 class="function"><a name="to_lower-1">to_lower/1</a></h3>
 <div class="spec">
