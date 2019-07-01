@@ -28,8 +28,11 @@ icu_error_code_atom(ErlNifEnv *env, UErrorCode code) {
                 cstr += 2;
 
         char str[strlen(cstr) + 1];
-        for (size_t i = 0; i < strlen(cstr); i++)
+        size_t i;
+
+        for (i = 0; i < strlen(cstr); i++)
                 str[i] = tolower((unsigned char)cstr[i]);
+        str[i] = '\0';
 
         return enif_make_atom(env, str);
 }
