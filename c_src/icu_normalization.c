@@ -50,7 +50,7 @@ icu_unorm2_get_instance(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
         }
 
         // Normalizer resource
-        ret = icu_nif_create_rc(env, nif_data->rc_static_normalizer,
+        ret = icu_nif_create_rc(env, nif_data->static_normalizer_rc_type,
                                 &normalizer, sizeof(normalizer),
                                 &normalizer_rc);
         if (ret == -1) {
@@ -76,7 +76,8 @@ icu_unorm2_normalize(ErlNifEnv *env, int argc, const ERL_NIF_TERM argv[]) {
         if (argc != 2)
                 return enif_make_badarg(env);
 
-        ret = enif_get_resource(env, argv[0], nif_data->rc_static_normalizer,
+        ret = enif_get_resource(env, argv[0],
+                                nif_data->static_normalizer_rc_type,
                                 (void **)&pnormalizer);
         if (!ret)
                 return enif_make_badarg(env);

@@ -28,6 +28,11 @@ static ErlNifFunc icu_nif_functions[] = {
         // Normalization
         {"unorm2_get_instance", 2, icu_unorm2_get_instance, 0},
         {"unorm2_normalize", 2, icu_unorm2_normalize, 0},
+
+        // Transliteration
+        {"utrans_open_ids", 0, icu_utrans_open_ids, 0},
+        {"utrans_open_u", 2, icu_utrans_open_u, 0},
+        {"utrans_uchars", 2, icu_utrans_uchars, 0},
 };
 
 static int

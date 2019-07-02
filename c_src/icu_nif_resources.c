@@ -37,3 +37,11 @@ icu_nif_create_rc(ErlNifEnv *env, ErlNifResourceType *type,
         *pterm = term;
         return 0;
 }
+
+void
+icu_transliterator_dtor(ErlNifEnv *env, void *ptr) {
+        if (ptr == NULL)
+                return;
+
+        utrans_close(ptr);
+}

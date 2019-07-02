@@ -1,7 +1,9 @@
 
 -module(icu).
 
--export_type([ustring/0, normalization_mode/0]).
+-export([transliterators_ids/0]).
+
+-export_type([ustring/0, normalization_mode/0, transliteration_direction/0]).
 
 -type ustring() :: binary().
 %% An UTF-16 binary string.
@@ -14,3 +16,10 @@
 %% A normalization mode as defined by Unicode Standard Annex #15.
 %%
 %% @reference <a href="http://www.unicode.org/reports/tr15">UAX #15</a>.
+
+-type transliteration_direction() :: forward | reverse.
+%% The direction used when applying a transliteration rule.
+
+%% @doc Return a list containing the identifier of available transliterators.
+transliterators_ids() ->
+  lists:map(fun icu_string:to_utf8/1, icu_nif:utrans_open_ids()).

@@ -5,6 +5,7 @@
 -export([str_from_utf8/1, str_to_utf8/1,
          str_to_lower/1, str_to_lower/2, str_to_upper/1, str_to_upper/2]).
 -export([unorm2_get_instance/2, unorm2_normalize/2]).
+-export([utrans_open_ids/0, utrans_open_u/2, utrans_uchars/2]).
 
 -on_load(init/0).
 
@@ -60,4 +61,21 @@ unorm2_get_instance(_Name, _Mode) ->
 
 -spec unorm2_normalize(normalizer(), icu:ustring()) -> icu:ustring().
 unorm2_normalize(_Normalizer, _UString) ->
+  erlang:nif_error(nif_not_loaded).
+
+%%% Transliteration
+
+-type transliterator() :: reference().
+
+-spec utrans_open_ids() -> [icu:ustring()].
+utrans_open_ids() ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec utrans_open_u(icu:ustring(), Direction) -> transliterator() when
+    Direction :: forward | reverse.
+utrans_open_u(_Id, _Direction) ->
+  erlang:nif_error(nif_not_loaded).
+
+-spec utrans_uchars(transliterator(), icu:ustring()) -> icu:ustring().
+utrans_uchars(_Transliterator, _UString) ->
   erlang:nif_error(nif_not_loaded).

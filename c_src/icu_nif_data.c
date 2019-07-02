@@ -30,7 +30,13 @@ icu_nif_data_open_resources(struct icu_nif_data *data, ErlNifEnv *env) {
         rc = icu_nif_open_rc_type(env, "static_normalizer", NULL);
         if (rc == NULL)
                 return -1;
-        data->rc_static_normalizer = rc;
+        data->static_normalizer_rc_type = rc;
+
+        rc = icu_nif_open_rc_type(env, "transliterator",
+                                  icu_transliterator_dtor);
+        if (rc == NULL)
+                return -1;
+        data->transliterator_rc_type = rc;
 
         return 0;
 }
