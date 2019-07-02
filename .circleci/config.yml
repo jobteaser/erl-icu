@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: "circleci/erlang:22.0"
+      - image: "jobteaser/erlang:latest"
 
     steps:
       - checkout
