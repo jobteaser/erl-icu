@@ -20,9 +20,11 @@ NIF_OBJ = $(subst .c,.o,$(NIF_SRC))
 PLATFORM = $(shell uname -s)
 
 ifeq ($(PLATFORM), Linux)
-	CFLAGS += -I/usr/lib/erlang/usr/include
+	CFLAGS += -I/usr/lib/erlang/usr/include # used on local machines
+	CFLAGS += -I/usr/local/include # used in the build container
 
 	LDFLAGS += -L/usr/lib/erlang/usr/lib
+	LDFLAGS += -L/usr/local/lib
 endif
 
 ifeq ($(PLATFORM), Darwin)
@@ -38,7 +40,7 @@ ifeq ($(PLATFORM), FreeBSD)
 	CFLAGS += -I/usr/local/include
 
 	LDFLAGS += -L/usr/local/lib/erlang/usr/lib
-	LDLAGS += -I/usr/local/lib
+	LDFLAGS += -I/usr/local/lib
 endif
 
 all: build doc
