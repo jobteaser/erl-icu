@@ -21,10 +21,10 @@ PLATFORM = $(shell uname -s)
 
 ifeq ($(PLATFORM), Linux)
 	CFLAGS += -I/usr/lib/erlang/usr/include # used on local machines
-	CFLAGS += -I/usr/local/include # used in the build container
+	CFLAGS += -I/usr/local/lib/erlang/usr/include # used in the build container
 
 	LDFLAGS += -L/usr/lib/erlang/usr/lib
-	LDFLAGS += -L/usr/local/lib
+	LDFLAGS += -L/usr/local/lib/erlang/usr/lib
 endif
 
 ifeq ($(PLATFORM), Darwin)
