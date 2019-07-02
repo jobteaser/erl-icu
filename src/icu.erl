@@ -1,7 +1,7 @@
 
 -module(icu).
 
--export([transliterators_ids/0]).
+-export([transliterator_ids/0]).
 
 -export_type([ustring/0, normalization_mode/0, transliteration_direction/0]).
 
@@ -21,6 +21,6 @@
 %% The direction used when applying a transliteration rule.
 
 %% @doc Return a list containing the identifier of available transliterators.
--spec transliterators_ids() -> [binary()].
-transliterators_ids() ->
+-spec transliterator_ids() -> [binary()].
+transliterator_ids() ->
   lists:map(fun icu_string:to_utf8/1, icu_nif:utrans_open_ids()).
