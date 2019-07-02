@@ -4,7 +4,8 @@
 -export([from_utf8/1, to_utf8/1,
          transform_utf8/2, transform/2,
          to_lower/1, to_lower/2, to_upper/1, to_upper/2,
-         normalize/2]).
+         normalize/2,
+         transliterate/2, transliterate/3]).
 
 %% @doc Convert an UTF-8 encoded binary string to an ICU string.
 -spec from_utf8(binary()) -> icu:ustring().
@@ -78,3 +79,19 @@ normalizer(nfd) ->
   icu_nif:unorm2_get_instance("nfc", decompose);
 normalizer(nfkd) ->
   icu_nif:unorm2_get_instance("nfkc", decompose).
+
+%% @doc Perform unicode transliteration on an ICU string.
+%%
+%% @see transliterate/3
+-spec transliterate(icu:ustring(), binary()) -> icu:ustring().
+transliterate(UString, TransliteratorId) ->
+  transliterate(UString, TransliteratorId, forward).
+
+%% @doc Perform unicode transliteration on an ICU string with a specific
+%% direction.
+-spec transliterate(icu:ustring(), binary(),
+                    icu:transliteration_direction()) -> icu:ustring().
+transliterate(UString, TransliteratorId, Direction) ->
+  Transliterator = icu_nif:utrans_open_u(from_utf8(TransliteratorId),
+                                         Direction),
+  icu_nif:utrans_uchars(Transliterator, UString).

@@ -21,5 +21,6 @@
 %% The direction used when applying a transliteration rule.
 
 %% @doc Return a list containing the identifier of available transliterators.
+-spec transliterators_ids() -> [binary()].
 transliterators_ids() ->
   lists:map(fun icu_string:to_utf8/1, icu_nif:utrans_open_ids()).
