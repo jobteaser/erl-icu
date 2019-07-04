@@ -28,14 +28,14 @@ ifeq ($(PLATFORM), Linux)
 endif
 
 ifeq ($(PLATFORM), Darwin)
-	CFLAGS += -I/opt/local/lib/erlang/usr/include
-	CFLAGS += -I/opt/local/include
-	CFLAGS += -I/usr/local/opt/erlang/usr/include
-	CFLAGS += -I/usr/local/opt/icu4c/include
+	CFLAGS += -I/opt/local/lib/erlang/usr/include # macport
+	CFLAGS += -I/opt/local/include # macport
+	CFLAGS += -I/usr/local/opt/erlang/usr/include # brew
+	CFLAGS += -I/usr/local/opt/icu4c/include # brew
 
 	LDFLAGS += -arch x86_64 -flat_namespace -undefined suppress
-	LDFLAGS += -L/opt/local/lib/erlang/usr/lib
-	LDFLAGS += -L/usr/local/opt/erlang/usr/lib
+	LDFLAGS += -L/opt/local/lib/erlang/usr/lib # macport
+	LDFLAGS += -L/usr/local/opt/erlang/usr/lib # brew
 endif
 
 ifeq ($(PLATFORM), FreeBSD)
