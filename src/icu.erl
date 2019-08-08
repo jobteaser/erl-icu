@@ -13,9 +13,9 @@
 %% documentation, we also use the term "ICU string".
 
 -type normalization_mode() :: nfc | nfkc | nfkc_cf | nfd | nfkd.
-%% A normalization mode as defined by Unicode Standard Annex #15.
+%% A normalization mode.
 %%
-%% @reference <a href="http://www.unicode.org/reports/tr15">UAX #15</a>.
+%% Defined in <a href="http://www.unicode.org/reports/tr15">UAX #15</a>.
 
 -type transliteration_direction() :: forward | reverse.
 %% The direction used when applying a transliteration rule.

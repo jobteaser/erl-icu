@@ -19,6 +19,10 @@
 <p><tt>normalizer() = reference()</tt></p>
 
 
+<h3 class="typedecl"><a name="type-transliterator">transliterator()</a></h3>
+<p><tt>transliterator() = reference()</tt></p>
+
+
 <h2><a name="index">Function Index</a></h2>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#icu_version-0">icu_version/0</a></td><td></td></tr>
 <tr><td valign="top"><a href="#str_from_utf8-1">str_from_utf8/1</a></td><td></td></tr>
@@ -30,6 +34,9 @@
 <tr><td valign="top"><a href="#unicode_version-0">unicode_version/0</a></td><td></td></tr>
 <tr><td valign="top"><a href="#unorm2_get_instance-2">unorm2_get_instance/2</a></td><td></td></tr>
 <tr><td valign="top"><a href="#unorm2_normalize-2">unorm2_normalize/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#utrans_open_ids-0">utrans_open_ids/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#utrans_open_u-2">utrans_open_u/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#utrans_uchars-2">utrans_uchars/2</a></td><td></td></tr>
 </table>
 
 <h2><a name="functions">Function Details</a></h2>
@@ -83,6 +90,22 @@
 <h3 class="function"><a name="unorm2_normalize-2">unorm2_normalize/2</a></h3>
 <div class="spec">
 <p><tt>unorm2_normalize(Normalizer::<a href="#type-normalizer">normalizer()</a>, UString::<a href="icu.html#type-ustring">icu:ustring()</a>) -&gt; <a href="icu.html#type-ustring">icu:ustring()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="utrans_open_ids-0">utrans_open_ids/0</a></h3>
+<div class="spec">
+<p><tt>utrans_open_ids() -&gt; [<a href="icu.html#type-ustring">icu:ustring()</a>]</tt><br></p>
+</div>
+
+<h3 class="function"><a name="utrans_open_u-2">utrans_open_u/2</a></h3>
+<div class="spec">
+<p><tt>utrans_open_u(Id::<a href="icu.html#type-ustring">icu:ustring()</a>, Direction) -&gt; <a href="#type-transliterator">transliterator()</a></tt>
+<ul class="definitions"><li><tt>Direction = forward | reverse</tt></li></ul></p>
+</div>
+
+<h3 class="function"><a name="utrans_uchars-2">utrans_uchars/2</a></h3>
+<div class="spec">
+<p><tt>utrans_uchars(Transliterator::<a href="#type-transliterator">transliterator()</a>, UString::<a href="icu.html#type-ustring">icu:ustring()</a>) -&gt; <a href="icu.html#type-ustring">icu:ustring()</a></tt><br></p>
 </div>
 <hr>
 

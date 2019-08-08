@@ -23,6 +23,9 @@
 <tr><td valign="top"><a href="#to_utf8-1">to_utf8/1</a></td><td>Convert an ICU string to an UTF-8 encoded binary string.</td></tr>
 <tr><td valign="top"><a href="#transform-2">transform/2</a></td><td>Apply a list of transformation functions to an ICU string.</td></tr>
 <tr><td valign="top"><a href="#transform_utf8-2">transform_utf8/2</a></td><td>Apply a list of transformation functions to an UTF-8 binary string.</td></tr>
+<tr><td valign="top"><a href="#transliterate-2">transliterate/2</a></td><td>Perform unicode transliteration on an ICU string.</td></tr>
+<tr><td valign="top"><a href="#transliterate-3">transliterate/3</a></td><td>Perform unicode transliteration on an ICU string with a specific
+  direction.</td></tr>
 </table>
 
 <h2><a name="functions">Function Details</a></h2>
@@ -81,6 +84,19 @@
   output format conversions.
  </p>
 <p><b>See also:</b> <a href="#transform-2">transform/2</a>.</p>
+
+<h3 class="function"><a name="transliterate-2">transliterate/2</a></h3>
+<div class="spec">
+<p><tt>transliterate(UString::<a href="icu.html#type-ustring">icu:ustring()</a>, TransliteratorId::binary()) -&gt; <a href="icu.html#type-ustring">icu:ustring()</a></tt><br></p>
+</div><p>Perform unicode transliteration on an ICU string.
+ </p>
+<p><b>See also:</b> <a href="#transliterate-3">transliterate/3</a>.</p>
+
+<h3 class="function"><a name="transliterate-3">transliterate/3</a></h3>
+<div class="spec">
+<p><tt>transliterate(UString::<a href="icu.html#type-ustring">icu:ustring()</a>, TransliteratorId::binary(), Direction::<a href="icu.html#type-transliteration_direction">icu:transliteration_direction()</a>) -&gt; <a href="icu.html#type-ustring">icu:ustring()</a></tt><br></p>
+</div><p>Perform unicode transliteration on an ICU string with a specific
+  direction.</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>

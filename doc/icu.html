@@ -10,15 +10,20 @@
 <hr>
 
 <h1>Module icu</h1>
-<ul class="index"><li><a href="#types">Data Types</a></li></ul>
+<ul class="index"><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
 
 
 <h2><a name="types">Data Types</a></h2>
 
 <h3 class="typedecl"><a name="type-normalization_mode">normalization_mode()</a></h3>
 <p><tt>normalization_mode() = nfc | nfkc | nfkc_cf | nfd | nfkd</tt></p>
-<p>  A normalization mode as defined by Unicode Standard Annex #15.
- </p>
+<p><p>  A normalization mode.</p>
+ 
+  Defined in <a href="http://www.unicode.org/reports/tr15">UAX #15</a>.</p>
+
+<h3 class="typedecl"><a name="type-transliteration_direction">transliteration_direction()</a></h3>
+<p><tt>transliteration_direction() = forward | reverse</tt></p>
+<p>  The direction used when applying a transliteration rule.</p>
 
 <h3 class="typedecl"><a name="type-ustring">ustring()</a></h3>
 <p><tt>ustring() = binary()</tt></p>
@@ -27,6 +32,17 @@
   We use the term <code>ustring</code> to match the C type <code>UChar</code> used by ICU, making
   it obvious that this is the type used by all ICU functions. In the
   documentation, we also use the term "ICU string".</p>
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#transliterator_ids-0">transliterator_ids/0</a></td><td>Return a list containing the identifier of available transliterators.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="transliterator_ids-0">transliterator_ids/0</a></h3>
+<div class="spec">
+<p><tt>transliterator_ids() -&gt; [binary()]</tt><br></p>
+</div><p>Return a list containing the identifier of available transliterators.</p>
 <hr>
 
 <div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
